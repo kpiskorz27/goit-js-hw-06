@@ -1,22 +1,24 @@
-const loginForm = document.querySelector(".form");
-
-loginForm.addEventListener("submit", function (event) {
-  event.preventDefault(); // Zapobiegaj odświeżaniu strony po przesłaniu formularza
-
-  const emailInput = this.elements.email;
-  const passwordInput = this.elements.password;
-
-  if (emailInput.value.trim() === "" || passwordInput.value.trim() === "") {
-    alert("Wypełnij wszystkie pola formularza.");
-  } else {
-    const formData = {
-      email: emailInput.value,
-      password: passwordInput.value,
-    };
-
-    console.log("Dane formularza:", formData);
-
-    // Wyczyść wartości pól input
-    this.reset();
-  }
-});
+const images = [
+  {
+    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat",
+  },
+  {
+    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
+  },
+  {
+    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running",
+  },
+];
+const imageGallery = document.querySelector(".gallery");
+const addImages = images
+  .map(
+    (image) =>
+      `<li class="image-list-item">
+      <img src="${image.url}" alt="${image.alt}">
+      </li>`
+  )
+  .join(" ");
+imageGallery.insertAdjacentHTML("afterbegin", addImages);
