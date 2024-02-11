@@ -25,8 +25,10 @@ const destroyBoxes = () => {
 createDataBtn.addEventListener("click", function () {
   const amount = boxCountInput.value;
   createBoxes(amount);
+  boxCountInput.value = "";
 });
 
 destroyDataBtn.addEventListener("click", function () {
   destroyBoxes();
+  boxCountInput.value = "";
 });
